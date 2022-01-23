@@ -35,8 +35,8 @@
 
 Тело ответа
 
-  `{
-    "regions": [
+`{
+  "regions": [
         {
             "id": <region id>,
             "name": "<region name"
