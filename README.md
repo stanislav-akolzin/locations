@@ -34,7 +34,8 @@
 `GET /api/regions`
 
 Тело ответа
-  {
+
+  `{
     "regions": [
         {
             "id": <region id>,
@@ -45,4 +46,4 @@
             "name": "<region name>"
         }
     ]
-}
+}`
