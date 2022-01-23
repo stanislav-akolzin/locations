@@ -33,9 +33,8 @@
 
 `GET /api/regions`
 
-Тело ответа
-
-```{
+Тело ответа```
+{
   "regions": [
         {
             "id": <region id>,
