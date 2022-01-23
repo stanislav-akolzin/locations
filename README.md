@@ -35,7 +35,7 @@
 
 Тело ответа
 
-`{
+`{<br>
   "regions": [
         {
             "id": <region id>,
