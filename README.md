@@ -105,3 +105,87 @@
     "error": "No region name given"
 }
 ```
+
+### Добавление города в список городов региона
+Добавляет в БД переданный в теле запроса город в переданный в теле запроса регион. Для выполнения требуется авторизация
+
+`POST api/add_city`
+
+Заголовки:
+`username` - имя пользователя
+`password` - пароль пользователя
+
+Тело запроса 
+```
+{
+    "region_id": <region id>,
+    "city_name": "<city name>"
+}
+```
+{
+    "city_name": "<city name>",
+    "city_id": <city id>,
+    "region_id": <region id>
+}
+```
+  
+Примеры тела ответа
+
+Примеры тела ответа
+```
+{
+    "status": "success"
+}
+```
+```
+{
+    "error": "No region id or city name given"
+}
+```
+```
+{
+    "error": "Wrong region id"
+}
+```
+```
+{
+    "error": "City in that region already exists"
+}
+```
+
+### Изменение региона
+Меняет наименование переданного в теле запроса региона. Для выполнения требуется авторизация
+
+`PUT api/change_region`
+
+Заголовки:
+`username` - имя пользователя
+`password` - пароль пользователя
+
+Тело запроса
+```
+{
+    "region_id": <region id>,
+    "region_name": "<region name>"
+}
+```
+  
+Примеры тела ответа
+```
+{
+    "status": "success"
+}
+```
+```
+{
+    "error": "No city id given"
+}
+```
+```
+{
+    "error": "Wrong region id"
+}
+```
+  
+  
+`city_name` и `region_id` - опциональны
