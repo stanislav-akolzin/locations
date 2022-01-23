@@ -79,7 +79,9 @@
 `POST api/add_region`
 
 Заголовки:
+
 `username` - имя пользователя
+
 `password` - пароль пользователя
 
 Тело запроса
@@ -112,7 +114,9 @@
 `POST api/add_city`
 
 Заголовки:
+
 `username` - имя пользователя
+
 `password` - пароль пользователя
 
 Тело запроса 
@@ -122,14 +126,6 @@
     "city_name": "<city name>"
 }
 ```
-{
-    "city_name": "<city name>",
-    "city_id": <city id>,
-    "region_id": <region id>
-}
-```
-  
-Примеры тела ответа
 
 Примеры тела ответа
 ```
@@ -159,7 +155,9 @@
 `PUT api/change_region`
 
 Заголовки:
+
 `username` - имя пользователя
+
 `password` - пароль пользователя
 
 Тело запроса
@@ -187,5 +185,46 @@
 }
 ```
   
-  
+### Изменение города
+Меняет наименование или регион переданного в теле запроса города. Для выполнения требуется авторизация
+
+`PUT api/change_city`
+
+Заголовки:
+
+`username` - имя пользователя
+
+`password` - пароль пользователя
+
+Тело запроса
+```
+{
+    "city_name": "<city name>",
+    "city_id": <city id>,
+    "region_id": <region id>
+}
+```
+
 `city_name` и `region_id` - опциональны
+
+Примеры тела ответа
+```
+{
+    "status": "success"
+}
+```
+```
+{
+    "error": "No city id given"
+}
+```
+```
+{
+    "error": "Wrong city id"
+}
+```
+```
+{
+    "error": "Wrong region id"
+}
+```
