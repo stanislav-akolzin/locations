@@ -34,7 +34,9 @@
 5. В файле `config.py` заполнить наименование базы данных (`<basename>`), а также ИмяПользователяБД и ПарольПользователяБД
 6. Создать образ из Dockerfile - `docker build -t <image_name> .`
 7. Запустить контейнер приложения из образа - `docker run --rm --name <container_name> -p 8000:8000 --network=host <image_name>`
-8. Можно тестировать проект
+8. Выполнить команду создания в базе данных 2-х пользователей (John и Bill с паролями 'john_password' и 'bill_password'
+соответственно), 10 регионов и по несколько городов в этих регионах - `docker exec <container_name> python db_initialization_and_filling_script.py`
+9. Можно тестировать проект
 
 ## Описание API
 
