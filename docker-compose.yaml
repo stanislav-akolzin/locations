@@ -4,6 +4,7 @@ services:
 
   web:
     build: ./locations
+    container_name: locations_web
     ports:
       - 8000:8000
     network_mode: "host"
