@@ -16,27 +16,13 @@
 Пароли хранятся в БД не в открытом виде, а в виде хеша.
 
 ## Разворачивание проекта
-1. Создать директорию, в которую будет помещен каталог с проектом
-2. Выполнить команду `git clone https://github.com/stanislav-akolzin/locations.git`
-3. Зайти в выбранный каталог и выполнить команду `python<veresion> -m venv env` для создания виртуального окружения под именем 'env'
-4. Выполнить команду `. env/bin/activate` для активации виртуального окружения
-5. Выполнить команду `pip install -r requirements.txt` для установки всех зависимостей для проекта из файла requirements.txt
-6. Необходимо заполнить в config.py НаименованиеБД, ИмяПользователяБД и ПарольПользователяБД
-7. Запустить скрипт db_initialization_and_filling_script.py для создания в базе данных 2-х пользователей (John и Bill с паролями 'john_password' и 'bill_password'
-соответственно), 10 регионов и по несколько городов в этих регионах.
-8. Далее можно тестировать проект, запустив run.py
-
-## Разворачивание проекта из Docker
-1. Перейти в директорию, в которую будет добавлен каталог с ихсодниками проекта
-2. Выполнить команду `git clone https://github.com/stanislav-akolzin/locations.git`
-3. Перейти в созданный каталог проекта `locations`
-4. Создать новую базу данных в локально установленном Postgresql с произвольным именем `<basename>`
-5. В файле `config.py` заполнить наименование базы данных (`<basename>`), а также ИмяПользователяБД и ПарольПользователяБД
-6. Создать образ из Dockerfile - `docker build -t <image_name> .`
-7. Запустить контейнер приложения из образа - `docker run --rm --name <container_name> -p 8000:8000 --network=host <image_name>`
-8. Выполнить команду создания в базе данных 2-х пользователей (John и Bill с паролями 'john_password' и 'bill_password'
-соответственно), 10 регионов и по несколько городов в этих регионах - `docker exec <container_name> python db_initialization_and_filling_script.py`
-9. Можно тестировать проект
+1. Выполнить команду `git clone https://github.com/stanislav-akolzin/locations.git`
+2. Перейти в созданный каталог проекта `locations`
+3. В файле `.env` заполнить значения `USER_NAME` (имя пользователя для БД), `USER_PASSWORD` (пароль пользователя для БД), `BASE_NAME` (создастся БД с таким именем), `PORT` (локальный порт для работы с БД Postgresql).
+4. В файле `scripts/script.sql` задать значение `<base_name>` аналогичное значению `BASE_NAME` в п.3
+5. Выполнить команду `docker-compose up --build` 
+6. Выполнить команду `docker exec -it locations_web python db_initialization_and_filling_script.py` для создания в базе данных 2-х пользователей (John и Bill с паролями 'john_password' и 'bill_password' соответственно), 10 регионов и по несколько городов в этих регионах
+7. Можно тестировать проект
 
 ## Описание API
 
