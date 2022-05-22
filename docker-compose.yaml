@@ -19,9 +19,9 @@ services:
     ports:
       - ${PORT}:5432
     environment:
-      USER_NAME: ${USER_NAME}
-      USER_PASSWORD: ${USER_PASSWORD}
-      BASE_NAME: ${BASE_NAME}
+      POSTGRES_USER: ${USER_NAME}
+      POSTGRES_PASSWORD: ${USER_PASSWORD}
+      PORSTGRES_DB: ${BASE_NAME}
     volumes:
       - ./pgdata:/var/lib/postgresql/data
       - ./scripts:/docker-entrypoint-initdb.d
