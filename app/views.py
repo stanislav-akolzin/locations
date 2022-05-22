@@ -43,7 +43,6 @@ def need_authentication(func):
         return func(*args, **kwargs)
     decorated_func.__name__ = func.__name__
     return decorated_func
-        
 
 
 @app.route('/api/regions')
