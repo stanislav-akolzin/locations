@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+
+  web:
+    build: ./locations
+    ports:
+      - 8000:8000
+    network_mode: "host"
+    restart: always
+    environment:
+      USER_NAME: ${USER_NAME}
+      USER_PASSWORD: ${USER_PASSWORD}
+      BASE_NAME: ${BASE_NAME}
+      PORT: ${PORT}
+
+  db:
+    image: postgres
+    ports:
+      - ${PORT}:5432
+    environment:
+      USER_NAME: ${USER_NAME}
+      USER_PASSWORD: ${USER_PASSWORD}
+      BASE_NAME: ${BASE_NAME}
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+      - ./scripts:/docker-entrypoint-initdb.d
+    restart: always
