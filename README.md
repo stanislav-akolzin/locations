@@ -16,11 +16,10 @@
 ## Разворачивание проекта
 1. Выполнить команду `git clone https://github.com/stanislav-akolzin/locations.git`
 2. Перейти в созданный каталог проекта `locations`
-3. В файле `.env` заполнить значения `USER_NAME` (имя пользователя для БД), `USER_PASSWORD` (пароль пользователя для БД), `BASE_NAME` (создастся БД с таким именем), `PORT` (локальный порт для работы с БД Postgresql).
-4. В файле `scripts/script.sql` задать значение `<base_name>` аналогичное значению `BASE_NAME` в п.3
-5. Выполнить команду `docker-compose up --build` 
-6. Выполнить команду `docker exec -it locations_web python db_initialization_and_filling_script.py` для создания в базе данных 2-х пользователей (John и Bill с паролями 'john_password' и 'bill_password' соответственно), 10 регионов и по несколько городов в этих регионах
-7. Можно тестировать проект
+3. В файле `.env` заполнить значения `USER_NAME` (имя пользователя для БД), `USER_PASSWORD` (пароль пользователя для БД), `PORT` (локальный порт для работы с БД Postgresql).
+4. Выполнить команду `docker-compose up --build`. Создастся БД с именем `locations_bd` 
+5. Выполнить команду `docker exec -it locations_web python db_initialization_and_filling_script.py` для создания в базе данных 2-х пользователей (John и Bill с паролями 'john_password' и 'bill_password' соответственно), 10 регионов и по несколько городов в этих регионах
+6. Можно тестировать проект
 
 ## Описание API
 
